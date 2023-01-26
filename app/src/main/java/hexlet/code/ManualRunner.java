@@ -1,7 +1,15 @@
 package hexlet.code;
 
-public class ManualRunner {
-    public static void main(String[] args) {
+import java.io.IOException;
 
+public class ManualRunner {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Hello, world!");
+
+        String result = Differ
+                .generate("/home/ceptoz/Hexlet/project-differences/java-project-71/app/src/test/resources/testdata1.json", "src/test/resources/testdata2.json");
+        System.out.println(result);
+
+        System.out.println("Goodbye, user!");
     }
 }

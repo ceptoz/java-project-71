@@ -1,0 +1,9 @@
+{
+  "token": "kjhasdkvae9233hrufib",
+  "host": "hexlet.io",
+  "port": 8888,
+  "protocol": "https",
+  "id": 2,
+  "method": "POST",
+  "format": "JSON"
+}

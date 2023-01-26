@@ -1,0 +1,9 @@
+{
+  "host": "hexlet.io",
+  "port": 8888,
+  "method": "GET",
+  "protocol": "http",
+  "resources": "available",
+  "token": "aiuhasdfkbasuh3283fnuia98gh",
+  "id": 5
+}

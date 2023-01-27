@@ -7,7 +7,8 @@ public class ManualRunner {
         System.out.println("Hello, world!");
 
         String result = Differ
-                .generate("/home/ceptoz/Hexlet/project-differences/java-project-71/app/src/test/resources/testdata1.json", "src/test/resources/testdata2.json");
+                .generate("src/test/resources/testdata1.json",
+                        "src/test/resources/testdata2.json");
         System.out.println(result);
 
         System.out.println("Goodbye, user!");

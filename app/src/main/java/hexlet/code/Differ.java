@@ -7,7 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.TreeSet;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,7 +22,7 @@ public class Differ {
     }
 
     private static Map<String, Object> getMapFromJsonString(String rawText) throws JsonProcessingException {
-        return OBJECT_MAPPER.readValue(rawText, new TypeReference<>() {});
+        return OBJECT_MAPPER.readValue(rawText, new TypeReference<>() { });
     }
 
     private static Map<String, Object> compareData(String filePath1, String filePath2) throws IOException {
@@ -32,11 +34,11 @@ public class Differ {
         Map<String, Object> dataToCompare1 = getMapFromJsonString(rawText1);
         Map<String, Object> dataToCompare2 = getMapFromJsonString(rawText2);
 
-        Set<String> keys = Stream.concat(dataToCompare1.keySet().stream(), dataToCompare2.keySet().stream())
+        TreeSet<String> keys = Stream.concat(dataToCompare1.keySet().stream(), dataToCompare2.keySet().stream())
                 .sorted().collect(Collectors.toCollection(TreeSet::new));
 
         for (String key : keys) {
-            if((dataToCompare1.containsKey(key) && dataToCompare2.containsKey(key))
+            if ((dataToCompare1.containsKey(key) && dataToCompare2.containsKey(key))
                     && dataToCompare1.get(key).equals(dataToCompare2.get(key))) {
                 resultMap.put("  " + key, dataToCompare1.get(key));
             } else if ((dataToCompare1.containsKey(key) && dataToCompare2.containsKey(key))

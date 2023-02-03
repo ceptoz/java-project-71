@@ -8,8 +8,7 @@ public class ManualRunner {
 
         String result = Differ
                 .generate("src/test/resources/testdata1.json",
-                        "src/test/resources/testdata3.json");
-//        System.out.println(result);
+                        "src/test/resources/testdata2.json");
 
         System.out.println("Goodbye, user!");
     }

@@ -14,7 +14,7 @@ public final class App implements Callable<Integer> {
             defaultValue = "stylish",
             showDefaultValue = CommandLine.Help.Visibility.ALWAYS,
             paramLabel = "format")
-    private String format = "stylish";
+    private final String format = "stylish";
     @CommandLine.Parameters(index = "0", description = "path to first file", paramLabel = "filepath1")
     private String filePath1;
     @CommandLine.Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")
@@ -25,7 +25,7 @@ public final class App implements Callable<Integer> {
         try {
             Differ.generate(filePath1, filePath2);
         } catch (IOException e) {
-            return 1;
+            e.printStackTrace();
         }
         return 0;
     }
